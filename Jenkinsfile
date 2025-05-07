@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         FRONTEND_IMAGE = 'nandhita22cse126/client-app'
-        DOCKER_CREDENTIALS_ID = 'Docker_cred'
+        DOCKER_CREDENTIALS_ID = 'docker_cred'
     }
 
     stages {
