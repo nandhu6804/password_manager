@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         FRONTEND_IMAGE = 'nandhita22cse126/client-app'
-        BACKEND_IMAGE = 'nandhita22cse126/server-app'
         DOCKER_CREDENTIALS_ID = 'Docker_cred'
     }
 
@@ -17,8 +16,7 @@ pipeline {
         stage('Build Frontend & Backend Images') {
             steps {
                 script {
-                    docker.build(FRONTEND_IMAGE, '--no-cache ./client')
-                    docker.build(BACKEND_IMAGE, '--no-cache ./server')
+                    docker.build(FRONTEND_IMAGE)
                 }
             }
         }
@@ -28,7 +26,6 @@ pipeline {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
                         docker.image(FRONTEND_IMAGE).push('latest')
-                        docker.image(BACKEND_IMAGE).push('latest')
                     }
                 }
             }
