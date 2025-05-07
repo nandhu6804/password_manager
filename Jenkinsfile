@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/Ragu162004/KN-Stores.git'
+                git branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/nandhu6804/password_manager.git'
             }
         }
 
